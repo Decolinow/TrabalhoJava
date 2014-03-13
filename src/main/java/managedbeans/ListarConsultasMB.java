@@ -1,12 +1,13 @@
-package managedbeans;
+package main.java.managedbeans;
 
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import modelo.Consulta;
-import repositorio.RepositorioConsultas;
+
+import main.java.modelo.Consulta;
+import main.java.repositorio.RepositorioConsultas;
 
 @ManagedBean
 public class ListarConsultasMB {

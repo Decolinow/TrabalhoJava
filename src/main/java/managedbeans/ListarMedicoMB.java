@@ -1,4 +1,4 @@
-package managedbeans;
+package main.java.managedbeans;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -14,10 +14,10 @@ import javax.faces.bean.ViewScoped;
 
 import org.primefaces.*;
 
-import modelo.Consulta;
-import modelo.Medico;
-import repositorio.RepositorioConsultas;
-import repositorio.RepositorioMedicos;
+import main.java.modelo.Consulta;
+import main.java.modelo.Medico;
+import main.java.repositorio.RepositorioConsultas;
+import main.java.repositorio.RepositorioMedicos;
 
 @ManagedBean
 @ViewScoped

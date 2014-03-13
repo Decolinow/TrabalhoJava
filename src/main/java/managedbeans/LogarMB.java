@@ -1,12 +1,12 @@
-package managedbeans;
+package main.java.managedbeans;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import modelo.Usuario;
+import main.java.modelo.Usuario;
+import main.java.repositorio.RepositorioUsuarios;
 
-import repositorio.RepositorioUsuarios;
 
 @ManagedBean	
 @SessionScoped

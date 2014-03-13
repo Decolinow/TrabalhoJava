@@ -1,4 +1,4 @@
-package repositorio;
+package main.java.repositorio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,8 +7,8 @@ import java.util.List;
 
 import javax.ejb.Singleton;
 
-import modelo.Medico;
-import modelo.Usuario;
+import main.java.modelo.Medico;
+import main.java.modelo.Usuario;
 
 @Singleton
 public class RepositorioUsuarios {
