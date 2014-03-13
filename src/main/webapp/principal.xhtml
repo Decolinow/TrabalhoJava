@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+</h:head> 
+<h:body> 
+
+	<h:panelGroup rendered="#{logarMB.logado == false}">
+		<script type="text/javascript">
+			window.location = "index.xhtml";
+		</script>
+	</h:panelGroup>
+
+	<a href='consultas.xhtml'>Ver consultas agendadas</a>
+	
+	<h:form>
+	<h:panelGroup rendered="#{listarMedicoMB.medicoEscolhido == null}">
+		<h2>Escolha um médico</h2>
+		
+		<h:dataTable value="#{listarMedicoMB.medicos}" var="medico">
+			<h:column>
+				<strong><h:outputText value="#{medico.nome}" /></strong>
+				<br/><h:outputText value="#{medico.especialidade}" />
+				<h:commandButton action="#{listarMedicoMB.selecionarMedico(medico)}" value="Selecionar" />
+			</h:column>
+		</h:dataTable>
+	</h:panelGroup>
+	</h:form>
+	
+		
+		<h:panelGroup rendered="#{listarMedicoMB.medicoEscolhido != null and listarMedicoMB.data == null}">
+			<h:form>
+			<h2>Escolha uma data:</h2>
+			<h3><h:outputText value="#{listarMedicoMB.medicoEscolhido.nome}" /></h3>
+			<p:calendar id="calData" mode="inline" pattern="dd/MM/yyyy" required="true" value="#{listarMedicoMB.data}" showOn="button"></p:calendar>
+			<br />
+			<h:commandButton action="#{listarMedicoMB.selecionarData('')}" value="Selecionar" />
+			<h:commandButton action="#{listarMedicoMB.limparTudo()}" value="Cancelar" />
+			</h:form>
+		</h:panelGroup>
+	
+	
+	
+	
+		<h:panelGroup rendered="#{listarMedicoMB.data != null}">
+			<h:form>
+			<h3><h:outputText value="#{listarMedicoMB.medicoEscolhido.nome}" /></h3>
+			<h3>Data escolhida: <h:outputText value="#{listarMedicoMB.dataExtenso}" /></h3>
+			Entre os dados do paciente e confirme: <br/>
+			Hora: <p:calendar id="calHora" value="#{listarMedicoMB.hora}" pattern="HH:mm" timeOnly="true" minHour="8" maxHour="20" maxMinute="0"></p:calendar>
+			<br />
+			Nome: <h:inputText value="#{listarMedicoMB.nomeCliente}"></h:inputText>
+			<br />
+			Plano de Saúde: <h:inputText value="#{listarMedicoMB.planoSaude}"></h:inputText>
+			<br />
+			<h:commandButton action="#{listarMedicoMB.confirmarConsulta()}" value="Confirmar consulta" />
+			<h:outputText value="#{listarMedicoMB.resultado}" />
+			<br/>
+			<h:commandButton action="#{listarMedicoMB.limparTudo}" value="Cancelar" />
+			</h:form>
+		</h:panelGroup>
+		
+		
+	
+</h:body> 
+</html>

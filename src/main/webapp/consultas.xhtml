@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+</h:head> 
+<h:body> 
+
+	<a href='principal.xhtml'>Agendar consulta</a>
+	
+	<h:form>
+	<h:panelGroup>
+		<h2>Consultas marcadas</h2>
+		
+		<h:dataTable value="#{listarConsultasMB.consultas}" var="consulta">
+			<h:column>
+				<strong><h:outputText value="#{consulta.medico.nome}" /></strong>
+				<br/>
+				Paciente: <h:outputText value="#{consulta.nomeCliente}" /> (<h:outputText value="#{consulta.nomePlano}" />)
+				<br />
+				Agendado para: <h:outputText value="#{consulta.data}" />
+				<br />
+				Status: <h:outputText value="#{consulta.status}" />
+			</h:column>
+			<h:column>
+				<h:commandButton rendered="#{!consulta.cancelado}" action="#{listarConsultasMB.cancelarConsulta(consulta)}" value="Cancelar" />
+				<h:commandButton rendered="#{consulta.cancelado}" action="#{listarConsultasMB.excluirConsulta(consulta)}" value="Excluir" />
+			</h:column>
+		</h:dataTable>
+	</h:panelGroup>
+	</h:form>
+	
+		
+		
+	
+</h:body> 
+</html>

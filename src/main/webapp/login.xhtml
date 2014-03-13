@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+
+	<a href="principal.xhtml">Home</a>
+	<br />
+	<h:form>
+	
+		<h:outputLabel value="Usuario:" />
+		<h:inputText value="#{logarMB.login}"></h:inputText>
+		<br />
+		<h:outputLabel value="Senha:" />
+		<h:inputText value="#{logarMB.senha}"></h:inputText>
+		
+		<br /><br />
+		<h:commandButton value="Logar" action="#{logarMB.logar}" />
+	
+		<br />
+		<h:outputLabel value="#{logarMB.resultado}" />
+	</h:form>
+	
+</body> 
+</html>
